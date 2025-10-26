@@ -56,6 +56,8 @@ public class ParameterizedTests {
     @ParameterizedTest(name = "Для каждого user {0} заполняется форма")
     void eachFieldIsFilledInTextBox(String name, String email, String currentAddress, String permanentAddress) {
         open("https://demoqa.com/text-box");
+        executeJavaScript("$('footer').remove();");
+        executeJavaScript("$('#fixedban').remove();");
         $("#userName").setValue(name);
         $("#userEmail").setValue(email);
         $("#currentAddress").setValue(currentAddress);
